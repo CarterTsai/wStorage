@@ -9,20 +9,20 @@ wStorage
 If WebStorage support that will return ture
     wStorage.support()  
 
-Find data by key
-    wStorage.prototype.find(key,callback)
+* Find data by key
+wStorage.prototype.find(key,callback)
 
-Find all data 
-    wStorage.prototype.find_all(callback)
+* Find all data 
+wStorage.prototype.find_all(callback)
 
-Add data by key
-    wStorage.prototype.add(key,data)
+* Add data by key
+wStorage.prototype.add(key,data)
 
-Delete data by key
-    wStorage.del(key)
+* Delete data by key
+wStorage.del(key)
 
-Clear all data 
-    wStorage.destroy()
+* Clear all data 
+wStorage.destroy()
 
 # Example
 
