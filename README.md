@@ -6,22 +6,28 @@ wStorage
 # API
 
 
-If WebStorage support that will return ture
-    wStorage.support()  
+* If WebStorage support that will return ture
+
+wStorage.support()  
 
 * Find data by key
+
 wStorage.prototype.find(key,callback)
 
-* Find all data 
+* Find all data
+
 wStorage.prototype.find_all(callback)
 
 * Add data by key
+
 wStorage.prototype.add(key,data)
 
 * Delete data by key
+
 wStorage.del(key)
 
 * Clear all data 
+
 wStorage.destroy()
 
 # Example
