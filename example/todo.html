@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="./../wstorage.js"></script>
+
+<style type="text/css">
+    #todo{
+        position: absolute;
+        margin-top: 10%;
+        margin-left: 35%;
+        width: 400px;
+        height: 510px;
+    }
+
+    #outline{
+        border: 1px solid #ccc;
+    }
+
+    #title{
+        margin-left: 40%;
+    }
+    input[type="input"]{
+        width: 368px;
+        border: 1px solid #ccc;
+    }
+    button{
+        position: relative;
+        float: right;
+    }
+</style>
+<script type="text/javascript">
+    var options = {
+        storage : 'local', // choice session or local storage
+    };
+
+    var ws = new wStorage(options);
+
+    $(document).ready(function() {
+
+        // list ws data to input
+        ws.find_all(function(key,data){
+            console.log(key + "," + data);
+            $('input[attr="'+key+'"]').val(data);
+        })
+
+        $('#remove').click(function(){
+            $('input[type="checkbox"]').each(function(){
+                if($(this).attr('checked') === 'checked'){
+                    var key = $(this).siblings('input').attr('attr');
+                    $(this).siblings('input').val("");
+                    ws.del(key);
+                }
+            })
+        })
+
+        $('#save').click(function() {
+             $('input[type="checkbox"]').each(function(){
+                if(ws.support()){
+                    var num = $(this).siblings('input').attr('attr');
+                    var data =  $(this).siblings('input').val();
+                    ws.add(num,data);
+                };
+             });
+        })
+    });
+    
+
+</script>
+</head>
+<body>
+
+<div id="todo">
+    <div id="outline">
+        <div id="title">TODD List</div>
+        <div id="content"><input type="checkbox"><input attr="0" type="input"></div>
+        <div id="content"><input type="checkbox"><input attr="1" type="input"></div>
+        <div id="content"><input type="checkbox"><input attr="2" type="input"></div>
+        <div id="content"><input type="checkbox"><input attr="3" type="input"></div>
+        <div id="content"><input type="checkbox"><input attr="4" type="input"></div>
+        <div id="content"><input type="checkbox"><input attr="5" type="input"></div>
+        <div id="content"><input type="checkbox"><input attr="6"type="input"></div>
+        <div id="content"><input type="checkbox"><input attr="7"type="input"></div>
+        <div id="content"><input type="checkbox"><input attr="8"type="input"></div>
+        <div id="content"><input type="checkbox"><input attr="9"type="input"></div>
+        <div style="height:30px">
+            <button id="save" type="button">Save</button>
+            <button id="remove" type="button">Remove</button>
+        </div>
+    </div>
+</div>
+      
+</body>
+</html>​
