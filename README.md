@@ -1,34 +1,34 @@
 wStorage
 =====================
 
- It's easy and simple to access WebStorage data.
+ It's easy to access WebStorage data.
 
 # API
 
 
 * If WebStorage support that will return ture
 
-wStorage.support()  
+  wStorage.support()  
 
 * Find data by key
 
-wStorage.prototype.find(key,callback)
+  wStorage.prototype.find(key,callback)
 
 * Find all data
 
-wStorage.prototype.find_all(callback)
+  wStorage.prototype.find_all(callback)
 
 * Add data by key
 
-wStorage.prototype.add(key,data)
+  wStorage.prototype.add(key,data)
 
 * Delete data by key
 
-wStorage.del(key)
+  wStorage.del(key)
 
 * Clear all data 
 
-wStorage.destroy()
+  wStorage.destroy()
 
 # Example
 
@@ -46,7 +46,7 @@ wStorage.destroy()
 	var ws = new wStorage(options);
 
 
-	// insert data
+	// Check browser has support WebStorage
 	if(ws.support()){
 
 	    ws.add('ws',"my"); // add string
